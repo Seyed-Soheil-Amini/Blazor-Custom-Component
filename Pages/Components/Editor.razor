@@ -1,0 +1,58 @@
+﻿@page "/editor"
+@inherits InputTextArea
+@inject IJSRuntime JSRuntime
+@inject NavigationManager navManager
+<textarea @attributes="AdditionalAttributes"
+          id="@Id"
+          class="@CssClass"
+          value="@CurrentValue"></textarea>
+
+@code {
+    string _id;
+
+    [Parameter]
+    public string Id
+    {
+        get => _id ?? $"CKEditor_{uid}";
+        set => _id = value;
+    }
+
+    [Parameter]
+    public EditorOptions Options { get; set; }
+
+    readonly string uid = Guid.NewGuid().ToString().ToLower().Replace("-", "");
+    private IJSObjectReference? _jsModule;
+    private IJSObjectReference? _jsModule2;
+    private DotNetObjectReference<Editor>? objRef;
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import",
+                         "./js/CKEditorInterop.js");
+            _jsModule2 = await JSRuntime.InvokeAsync<IJSObjectReference>("import",
+                        "./js/ckeditor.js");
+            objRef = DotNetObjectReference.Create(this);
+
+            //await JSRuntime.InvokeVoidAsync("CKEditorInterop.init", Id, $"http://localhost:5091/api/Editor/Upload", objRef);
+            await JSRuntime.InvokeVoidAsync("CKEditorInterop.init", Id, $"{navManager.BaseUri}api/Editor/Upload", Options, objRef);
+        }
+    }
+
+    [JSInvokable]
+    public Task EditorDataChanged(string data)
+    {
+        CurrentValue = data;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        objRef = DotNetObjectReference.Create(this);
+        JSRuntime.InvokeVoidAsync("CKEditorInterop.destroy", Id);
+        base.Dispose(disposing);
+    }
+}

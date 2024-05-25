@@ -1,0 +1,45 @@
+﻿@page "/"
+@using CustomComponent
+@using CustomComponent.Pages.Components
+@using CustomComponent.Shared.Classes;
+@using CustomComponent.Shared.Classes.Captcha
+
+@* <Editor @bind-Value="editorOptions.InitialText" Options="editorOptions"></Editor> *@
+<CaptchaFrame captchaOptions="@captchaOptions"></CaptchaFrame>
+@* <Uploader></Uploader> *@
+
+@code {
+    EditorOptions editorOptions;
+    CaptchaOptions captchaOptions;
+
+    protected override async Task OnInitializedAsync()
+    {
+        editorOptions = new EditorOptions();
+        captchaOptions = new CaptchaOptions();
+        captchaOptions.LetterNumber = 6;
+        captchaOptions.Type = "expression";
+        captchaOptions.Complexity = "hard";
+        // captchaOptions.CharSet = "abcdefghijklmnopqrstuvwxyz";
+        // captchaOptions.CharSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        // captchaOptions.CharSet = "ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی";
+        editorOptions.InitialText = "Welcome to Qaiser Mehmood github editor5-blazor app";
+        editorOptions.Toolbar = new Dictionary<string, object>
+        {
+            { "items", new[] { "code", "codeBlock", "htmlEmbed", "sourceEditing" } }
+            //htmlEmbed در بخش آپشن های ادیتور فایل ckeditor.js وجود ندارد
+        };
+        editorOptions.HtmlEmbed = new HtmlEmbedOptions
+            {
+                ShowPreviews = true,
+                SanitizeHtml = @"
+                (inputHtml) => {
+                    const outputHtml = sanitize(inputHtml);
+                    return {
+                        html: outputHtml,
+                        hasChanged: true
+                    };
+                }"
+            };
+        var txt = await Task.Run(() => 1);
+    }
+}

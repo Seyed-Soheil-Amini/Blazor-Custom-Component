@@ -1,0 +1,81 @@
+﻿@using CustomComponent.Shared.Classes
+@using System.Data
+@using CustomComponent.Shared.Classes.Captcha
+
+<div class="d-flex justify-content-center align-items-center vh-90">
+    <div class="container-fluid w-25">
+        <div class="d-flex align-items-center gap-x-1 my-auto">
+            <Captcha @bind-CaptchaWord="@Captcha" Type="@captchaOptions.Type" LetterNumber="@captchaOptions.LetterNumber" Complexity="@captchaOptions.Complexity" CharSet="@captchaOptions.CharSet" Width="200"></Captcha>
+        </div>
+        <div class="d-flex align-items-center mb-2">
+            <MudTextField @bind-Value="@userInput" Label="Captcha" Variant="Variant.Outlined" Immediate></MudTextField>
+            <MudButton Variant="Variant.Outlined" Color="Color.Primary" OnClick="ValidateCaptcha" Class="ml-2 py-2 my-auto">Validate</MudButton>
+        </div>
+        @if (IsSuccessOpen)
+        {
+            <MudAlert Severity="Severity.Success" IsOpen="@IsSuccessOpen">@CaptchaSuccessMessage</MudAlert>
+        }
+        @if (IsErrorOpen)
+        {
+            <MudAlert Severity="Severity.Error" IsOpen="@IsErrorOpen">@CaptchaErrorMessage</MudAlert>
+        }
+    </div>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public CaptchaOptions captchaOptions { get; set; }
+
+    private string Captcha = "";
+    public string userInput = "";
+    public string CaptchaResult = "";
+    public string CaptchaSuccessMessage = "Your Input is Correct";
+    public string CaptchaErrorMessage = "Your Input Does Not Match the Captcha.";
+    public bool IsSuccessOpen = false;
+    public bool IsErrorOpen = false;
+
+    public void RefreshCaptcha()
+    {
+        Captcha = Tools.GetCaptchaWord(captchaOptions.Type, captchaOptions.LetterNumber, captchaOptions.CharSet, captchaOptions.Complexity);
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        RefreshCaptcha();
+        return base.OnInitializedAsync();
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        CaptchaResult = "";
+        IsSuccessOpen = false;
+        IsErrorOpen = false;
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    public void ValidateCaptcha()
+    {
+        DataTable dt = new DataTable();
+        bool isCorrect = false;
+        if (captchaOptions.Complexity == "hard" || captchaOptions.Complexity == "very hard")
+            isCorrect = captchaOptions.Type == "expression" ? dt.Compute(Captcha, "").ToString() == userInput : Captcha.Equals(userInput, StringComparison.Ordinal);
+        else
+            isCorrect = captchaOptions.Type == "expression" ? dt.Compute(Captcha, "").ToString() == userInput : Captcha.ToLower() == userInput.ToLower();
+        if (isCorrect)
+        {
+            CaptchaResult = "Your Input is Applied";
+            IsSuccessOpen = true;
+            IsErrorOpen = false;
+        }
+        else
+        {
+            userInput = "";
+            CaptchaResult = "Your Input Does Not Match the Captcha.";
+            RefreshCaptcha();
+            IsSuccessOpen = false;
+            IsErrorOpen = true;
+        }
+    }
+}
