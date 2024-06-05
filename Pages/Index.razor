@@ -6,6 +6,7 @@
 
 @* <Editor @bind-Value="editorOptions.InitialText" Options="editorOptions"></Editor> *@
 <CaptchaFrame captchaOptions="@captchaOptions"></CaptchaFrame>
+<SliderCaptcha></SliderCaptcha>
 @* <Uploader></Uploader> *@
 
 @code {
@@ -16,12 +17,13 @@
     {
         editorOptions = new EditorOptions();
         captchaOptions = new CaptchaOptions();
-        captchaOptions.LetterNumber = 6;
-        captchaOptions.Type = "expression";
-        captchaOptions.Complexity = "hard";
+        captchaOptions.LetterNumber = 4;
+        captchaOptions.Type = "letter";
+        captchaOptions.Complexity = "easy";
+        captchaOptions.Langauge = "Fa";
         // captchaOptions.CharSet = "abcdefghijklmnopqrstuvwxyz";
         // captchaOptions.CharSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        // captchaOptions.CharSet = "ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی";
+        captchaOptions.CharSet = "ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی";
         editorOptions.InitialText = "Welcome to Qaiser Mehmood github editor5-blazor app";
         editorOptions.Toolbar = new Dictionary<string, object>
         {

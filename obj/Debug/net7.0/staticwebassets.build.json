@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LmefyeG/vhAg7dNE8i9FIV9rTS9PU9dV/8ZQx//YlAY=",
+  "Hash": "h+TE7gSg9OCrjIvCsUqHTceMkaTUwMKjMbczbNgp1Gk=",
   "Source": "CustomComponent",
   "BasePath": "_content/CustomComponent",
   "Mode": "Default",
@@ -471,6 +471,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\CKEditorInterop.js"
+    },
+    {
+      "Identity": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\wwwroot\\js\\SliderCaptcha.js",
+      "SourceId": "CustomComponent",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\wwwroot\\",
+      "BasePath": "_content/CustomComponent",
+      "RelativePath": "js/SliderCaptcha.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\SliderCaptcha.js"
+    },
+    {
+      "Identity": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\wwwroot\\js\\SliderCaptchaInterop.js",
+      "SourceId": "CustomComponent",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\wwwroot\\",
+      "BasePath": "_content/CustomComponent",
+      "RelativePath": "js/SliderCaptchaInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\SliderCaptchaInterop.js"
     }
   ]
 }

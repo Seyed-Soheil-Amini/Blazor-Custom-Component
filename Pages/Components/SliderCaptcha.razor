@@ -1,0 +1,48 @@
+﻿@page "/slider-captcha"
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<MudContainer>
+    <MudGrid Justify="Justify.Center">
+        <MudItem xs="12" md="4" Class="mb-5">
+            <MudCard>
+                <MudCardHeader>
+                    <MudText> Please complete security verification!</MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <div id="captcha"></div>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {
+    [Parameter]
+    public EventCallback<bool> OnCaptchaValidated { get; set; }
+    bool isValid = false;
+    private IJSObjectReference? _jsModule;
+    private DotNetObjectReference<SliderCaptcha>? objRef;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/SliderCaptcha.js");
+            objRef = DotNetObjectReference.Create(this);
+            await _jsModule.InvokeVoidAsync("initializeCaptcha", objRef);
+        }
+    }
+
+    [JSInvokable]
+    public async Task HandleSliderCaptchaValidation()
+    {
+        isValid = true;
+        await OnCaptchaValidated.InvokeAsync(isValid);
+    }
+
+    public void Dispose()
+    {
+        objRef?.Dispose();
+    }
+}

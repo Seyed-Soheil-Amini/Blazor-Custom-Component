@@ -61,6 +61,14 @@
       "PackagePath": "staticwebassets\\js\\CKEditorInterop.js"
     },
     {
+      "Id": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\wwwroot\\js\\SliderCaptcha.js",
+      "PackagePath": "staticwebassets\\js\\SliderCaptcha.js"
+    },
+    {
+      "Id": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\wwwroot\\js\\SliderCaptchaInterop.js",
+      "PackagePath": "staticwebassets\\js\\SliderCaptchaInterop.js"
+    },
+    {
       "Id": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\wwwroot\\js\\ckeditor.js",
       "PackagePath": "staticwebassets\\js\\ckeditor.js"
     },

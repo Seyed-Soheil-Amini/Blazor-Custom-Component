@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xFZGl0b3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Soheil Amini/source/repos/CustomComponent/CustomComponent/Pages/Components/SliderCaptcha.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xTbGlkZXJDYXB0Y2hhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Soheil Amini/source/repos/CustomComponent/CustomComponent/Pages/Components/Uploader.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xVcGxvYWRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

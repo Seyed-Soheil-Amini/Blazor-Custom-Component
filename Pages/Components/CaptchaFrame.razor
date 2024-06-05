@@ -1,6 +1,7 @@
 ﻿@using CustomComponent.Shared.Classes
 @using System.Data
 @using CustomComponent.Shared.Classes.Captcha
+@using Microsoft.AspNetCore.Components
 
 <div class="d-flex justify-content-center align-items-center vh-90">
     <div class="container-fluid w-25">
@@ -22,11 +23,12 @@
     </div>
 </div>
 
-
-
 @code {
     [Parameter]
     public CaptchaOptions captchaOptions { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OnCaptchaValidated { get; set; }
 
     private string Captcha = "";
     public string userInput = "";
@@ -55,8 +57,10 @@
         return base.OnAfterRenderAsync(firstRender);
     }
 
-    public void ValidateCaptcha()
+    public async void ValidateCaptcha()
     {
+        if (captchaOptions.Langauge == "Fa")
+            Captcha = new string(Captcha.Reverse().ToArray());
         DataTable dt = new DataTable();
         bool isCorrect = false;
         if (captchaOptions.Complexity == "hard" || captchaOptions.Complexity == "very hard")
@@ -68,6 +72,7 @@
             CaptchaResult = "Your Input is Applied";
             IsSuccessOpen = true;
             IsErrorOpen = false;
+            await OnCaptchaValidated.InvokeAsync(true);
         }
         else
         {
@@ -76,6 +81,8 @@
             RefreshCaptcha();
             IsSuccessOpen = false;
             IsErrorOpen = true;
+            await OnCaptchaValidated.InvokeAsync(false);
         }
+        userInput = "";
     }
 }
