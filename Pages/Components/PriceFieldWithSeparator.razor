@@ -1,0 +1,53 @@
+﻿@using CustomComponent.Shared.Classes
+
+<style>
+    .input-group-prepend .input-group-text-custom {
+        border: hidden !important;
+        background-color: white !important;
+    }
+</style>
+<label class="mud-input-label" for="notifiedAmountInput">@(Label)@if (IsRequired) {<>*</>}</label>
+<div class="input-group" dir="ltr">
+    <div class="input-group-prepend">
+        <span class="input-group-text input-group-text-custom" id="inputGroupPrepend">@(Addronment)</span>
+    </div>
+    <input required="@(IsRequired)" type="tel" dir="ltr" @bind="PriceFieldSeparator.FormatedInput" maxLength="@(PriceFieldSeparator.ValueInput/10)" @bind:event="oninput" @onchange="OnValueChanged" @onblur="OnLeftFocus" class="form-control @(!checkAmount?"is-invalid":"") gray-color" aria-describedby="deviceValueHelp" autocomplete="on">
+</div>
+@if (!checkAmount)
+{
+    <span style="color: red;font-size:10px;">
+        @(RequiredErrorMsg)
+    </span>
+}
+
+@code {
+    [Parameter] public bool IsRequired { get; set; }
+    [Parameter] public long? Value { get; set; }
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public string? Addronment { get; set; }
+    [Parameter] public string? RequiredErrorMsg { get; set; }
+    [Parameter] public long? MaxLimit { get; set; } = long.MaxValue;
+    [Parameter] public long? MinLimit { get; set; } = 0;
+    [Parameter] public EventCallback<long?> ReturnResult { get; set; }
+    bool checkAmount = true;
+    PriceFieldSeparator PriceFieldSeparator;
+    protected override async Task OnInitializedAsync()
+    {
+        PriceFieldSeparator.ValueInput = Value;
+    }
+
+    public async void OnLeftFocus()
+    {
+        if (checkAmount) await ReturnResult.InvokeAsync(PriceFieldSeparator.ValueInput.Value);
+        else await ReturnResult.InvokeAsync(null);
+    }
+
+    public void OnValueChanged()
+    {
+        if (IsRequired)
+        {
+            if (PriceFieldSeparator.ValueInput != null && PriceFieldSeparator.ValueInput != 0 && PriceFieldSeparator.ValueInput >= MinLimit && PriceFieldSeparator.ValueInput <= MaxLimit) checkAmount = true;
+            else checkAmount = false;
+        }
+    }
+}

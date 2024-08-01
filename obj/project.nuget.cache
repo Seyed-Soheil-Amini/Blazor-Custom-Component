@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "OEgeT7oQ/rGcATZgD/2sKRGBqJt9jNCnhHmbr7opJEcCYecGheDcl7fP62RvWz80qwvDAZxq7NoKoanuxVIwtQ==",
+  "dgSpecHash": "ZizZ8nS43lmf7dESGMmcYYDawcwpTWn8JzBf2G4xOHfMJmQ867XSwsJi5md92PDkEatQ7k2AmWobnC+TKWgviQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Soheil Amini\\source\\repos\\CustomComponent\\CustomComponent\\CustomComponent.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\blazorcaptcha\\1.6.0\\blazorcaptcha.1.6.0.nupkg.sha512",
+    "C:\\Users\\Soheil Amini\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -129,7 +130,11 @@
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\Soheil Amini\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Soheil Amini\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\Soheil Amini\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Soheil Amini\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Soheil Amini\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Soheil Amini\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Soheil Amini\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }

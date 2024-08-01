@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CustomComponent</id>
+    <version>1.0.0</version>
+    <authors>CustomComponent</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="f422f0f177741ea01f78e3387bfbc137ddb2240c" />
+    <dependencies>
+      <group targetFramework="net7.0">
+        <dependency id="CustomComponent.Shared" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="BlazorCaptcha" version="1.6.0" exclude="Build,Analyzers" />
+        <dependency id="FluentValidation" version="11.9.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="7.0.19" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="7.0.19" exclude="Build,Analyzers" />
+        <dependency id="MudBlazor" version="6.19.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net7.0">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net7.0/appsettings.Development.json" buildAction="Content" />
+      <files include="any/net7.0/appsettings.json" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Release\net7.0\CustomComponent.runtimeconfig.json" target="lib\net7.0\CustomComponent.runtimeconfig.json" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Release\net7.0\CustomComponent.dll" target="lib\net7.0\CustomComponent.dll" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\appsettings.Development.json" target="content\appsettings.Development.json" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\appsettings.Development.json" target="contentFiles\any\net7.0\appsettings.Development.json" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\appsettings.json" target="content\appsettings.json" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\appsettings.json" target="contentFiles\any\net7.0\appsettings.json" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\scopedcss\projectbundle\CustomComponent.bundle.scp.css" target="staticwebassets\CustomComponent.bundle.scp.css" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\bootstrap\bootstrap.min.css" target="staticwebassets\css\bootstrap\bootstrap.min.css" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\bootstrap\bootstrap.min.css.map" target="staticwebassets\css\bootstrap\bootstrap.min.css.map" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\FONT-LICENSE" target="staticwebassets\css\open-iconic\FONT-LICENSE" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\ICON-LICENSE" target="staticwebassets\css\open-iconic\ICON-LICENSE" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\README.md" target="staticwebassets\css\open-iconic\README.md" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css" target="staticwebassets\css\open-iconic\font\css\open-iconic-bootstrap.min.css" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\font\fonts\open-iconic.eot" target="staticwebassets\css\open-iconic\font\fonts\open-iconic.eot" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\font\fonts\open-iconic.otf" target="staticwebassets\css\open-iconic\font\fonts\open-iconic.otf" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\font\fonts\open-iconic.svg" target="staticwebassets\css\open-iconic\font\fonts\open-iconic.svg" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\font\fonts\open-iconic.ttf" target="staticwebassets\css\open-iconic\font\fonts\open-iconic.ttf" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\open-iconic\font\fonts\open-iconic.woff" target="staticwebassets\css\open-iconic\font\fonts\open-iconic.woff" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\css\site.css" target="staticwebassets\css\site.css" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\favicon.png" target="staticwebassets\favicon.png" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\js\CKEditorInterop.js" target="staticwebassets\js\CKEditorInterop.js" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\js\SliderCaptcha.js" target="staticwebassets\js\SliderCaptcha.js" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\js\SliderCaptchaInterop.js" target="staticwebassets\js\SliderCaptchaInterop.js" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\js\ckeditor.js" target="staticwebassets\js\ckeditor.js" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\wwwroot\js\ckeditor.js.map" target="staticwebassets\js\ckeditor.js.map" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\staticwebassets\msbuild.CustomComponent.Microsoft.AspNetCore.StaticWebAssets.props" target="build\Microsoft.AspNetCore.StaticWebAssets.props" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\staticwebassets\msbuild.build.CustomComponent.props" target="build\CustomComponent.props" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\staticwebassets\msbuild.buildMultiTargeting.CustomComponent.props" target="buildMultiTargeting\CustomComponent.props" />
+    <file src="C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\staticwebassets\msbuild.buildTransitive.CustomComponent.props" target="buildTransitive\CustomComponent.props" />
+  </files>
+</package>

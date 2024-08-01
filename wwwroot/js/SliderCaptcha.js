@@ -1,3 +1,30 @@
+export function initializeCaptcha(dotNetHelper) {
+    var captcha = sliderCaptcha({
+        id: 'captcha',
+        loadingText: 'Loading...',
+        failedText: 'Try again',
+        barText: 'Slide right to fill',
+        repeatIcon: 'fa fa-redo',
+        onSuccess: function () {
+            setTimeout(() => {
+                dotNetHelper.invokeMethodAsync('HandleSliderCaptchaValidation')
+                    .then(result => {
+                        console.log("Captcha validation called in C#");
+                    })
+                    .catch(error => {
+                        console.error("Error calling C# method:", error);
+                    });
+            }, 1000);
+            setTimeout(function () {
+                captcha.reset();
+            }, 1000);
+        },
+        setSrc: function () {
+            //return 'https://picsum.photos/' + Math.round(Math.random() * 136) + '.jpg';
+        },
+    });
+}
+
 //---slider-captcha-js--
 (function () {
     "use strict";
@@ -235,14 +262,10 @@
                 if (e.spliced && e.verified) {
                     n.sliderContainer.classList.add("sliderContainer_success");
                     i(n.options.onSuccess) && n.options.onSuccess.call(n.$element);
-                    console.log("Captcha validated successfully.");
-                    DotNet.invokeMethodAsync('CustomComponent', 'HandleValidationResult', true);
                     return true;
                 } else {
                     n.sliderContainer.classList.add("sliderContainer_fail");
                     i(n.options.onFail) && n.options.onFail.call(n.$element);
-                    console.log("Captcha validation failed.");
-                    DotNet.invokeMethodAsync('CustomComponent', 'HandleValidationResult', false);
                     setTimeout(function () {
                         n.text.innerHTML = n.options.failedText;
                         n.reset()
@@ -268,70 +291,39 @@
         })
     };
 
-    n.verifyFunction = function () {
-        var result = this.verify();
-        console.log('Verify Function');
-        if (result.spliced && result.verified) {
-            return true;
-        }
-        else {
-            return false;
-        };
-    }
     n.verify = function () {
-        console.log("nnn");
-            var n = this.trail,
-                r = parseInt(this.block.style.left),
-                t = !1;
-            if (this.options.remoteUrl !== null) t = this.options.verify(n, this.options.remoteUrl);
-            else {
-                var i = function (n, t) {
-                    return n + t
+        var n = this.trail,
+            r = parseInt(this.block.style.left),
+            t = !1;
+        if (this.options.remoteUrl !== null) t = this.options.verify(n, this.options.remoteUrl);
+        else {
+            var i = function (n, t) {
+                return n + t
+            },
+                u = function (n) {
+                    return n * n
                 },
-                    u = function (n) {
-                        return n * n
-                    },
-                    f = n.reduce(i) / n.length,
-                    e = n.map(function (n) {
-                        return n - f
-                    }),
-                    o = Math.sqrt(e.map(u).reduce(i) / n.length);
-                t = o !== 0
-            }
-            return {
-                spliced: Math.abs(r - this.x) < this.options.offset,
-                verified: t
-            }
-        };
-        n.reset = function () {
-            this.sliderContainer.classList.remove("sliderContainer_fail");
-            this.sliderContainer.classList.remove("sliderContainer_success");
-            this.slider.style.left = 0;
-            this.block.style.left = 0;
-            this.sliderMask.style.width = 0;
-            this.clean();
-            this.text.setAttribute("data-text", this.text.textContent);
-            this.text.textContent = this.options.loadingText;
-            this.img.setSrc()
+                f = n.reduce(i) / n.length,
+                e = n.map(function (n) {
+                    return n - f
+                }),
+                o = Math.sqrt(e.map(u).reduce(i) / n.length);
+            t = o !== 0
         }
-    }) ();
-
-
-
-    // ----set-captcha with script
-    var captcha = sliderCaptcha({
-        id: 'captcha',
-        loadingText: 'Loading...',
-        failedText: 'Try again',
-        barText: 'Slide right to fill',
-        repeatIcon: 'fa fa-redo',
-        onSuccess: function () {
-            setTimeout(function () {
-                alert('Your captcha is successfully verified.');
-                captcha.reset();
-            }, 1000);
-        },
-        setSrc: function () {
-            //return 'https://picsum.photos/' + Math.round(Math.random() * 136) + '.jpg';
-        },
-    });
+        return {
+            spliced: Math.abs(r - this.x) < this.options.offset,
+            verified: t
+        }
+    };
+    n.reset = function () {
+        this.sliderContainer.classList.remove("sliderContainer_fail");
+        this.sliderContainer.classList.remove("sliderContainer_success");
+        this.slider.style.left = 0;
+        this.block.style.left = 0;
+        this.sliderMask.style.width = 0;
+        this.clean();
+        this.text.setAttribute("data-text", this.text.textContent);
+        this.text.textContent = this.options.loadingText;
+        this.img.setSrc()
+    }
+})();

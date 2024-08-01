@@ -104,3 +104,4 @@ C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net7.0\MudBlazor.dll
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net7.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net7.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
+C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net7.0\FluentValidation.dll

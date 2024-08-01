@@ -5,9 +5,13 @@
 @using CustomComponent.Shared.Classes.Captcha
 
 @* <Editor @bind-Value="editorOptions.InitialText" Options="editorOptions"></Editor> *@
-<CaptchaFrame captchaOptions="@captchaOptions"></CaptchaFrame>
-<SliderCaptcha></SliderCaptcha>
-@* <Uploader></Uploader> *@
+@*<CaptchaFrame captchaOptions="@captchaOptions"></CaptchaFrame>*@
+@* <SliderCaptcha></SliderCaptcha> *@
+<MudPaper Height="400px" Width="100%">
+    <MudContainer MaxWidth="MaxWidth.Small">
+        <Uploader></Uploader>
+    </MudContainer>
+</MudPaper>
 
 @code {
     EditorOptions editorOptions;

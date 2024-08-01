@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CustomComponent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+883d89dd49d34b6a9d525a5b1e157c12fb84646e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f422f0f177741ea01f78e3387bfbc137ddb2240c")]
 [assembly: System.Reflection.AssemblyProductAttribute("CustomComponent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CustomComponent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
