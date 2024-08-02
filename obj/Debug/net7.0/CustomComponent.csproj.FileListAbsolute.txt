@@ -105,3 +105,4 @@ C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net7.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net7.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Debug\net7.0\CustomComponent.sourcelink.json

@@ -105,3 +105,4 @@ C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\n
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\CustomComponent.pdb
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\CustomComponent.genruntimeconfig.cache
 C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\ref\CustomComponent.dll
+C:\Users\Soheil Amini\source\repos\CustomComponent\CustomComponent\obj\Release\net7.0\CustomComponent.sourcelink.json

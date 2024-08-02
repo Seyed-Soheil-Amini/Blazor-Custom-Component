@@ -7,15 +7,17 @@
 @* <Editor @bind-Value="editorOptions.InitialText" Options="editorOptions"></Editor> *@
 @*<CaptchaFrame captchaOptions="@captchaOptions"></CaptchaFrame>*@
 @* <SliderCaptcha></SliderCaptcha> *@
-<MudPaper Height="400px" Width="100%">
+@* <MudPaper Height="400px" Width="100%">
     <MudContainer MaxWidth="MaxWidth.Small">
         <Uploader></Uploader>
     </MudContainer>
-</MudPaper>
-
+</MudPaper> *@
+<PriceFieldWithSeparator IsRequired="true" Addronment="ريال" Label="مبلغ ابلاغ شده" RequiredErrorMsg="مبلغ ابلاغ شده نمی تواند خالی باشد." Value="@price" ReturnResultFunc="GetPriceResult"></PriceFieldWithSeparator>
+<MudItem>@price</MudItem>
 @code {
     EditorOptions editorOptions;
     CaptchaOptions captchaOptions;
+    long price = 250000;
 
     protected override async Task OnInitializedAsync()
     {
@@ -47,5 +49,11 @@
                 }"
             };
         var txt = await Task.Run(() => 1);
+    }
+
+    private void GetPriceResult(long? enteredResult)
+    {
+        price = enteredResult.Value;
+        StateHasChanged();
     }
 }
